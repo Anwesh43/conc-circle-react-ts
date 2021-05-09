@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, CSSProperties} from 'react'
 
 const scGap : number = 0.02 
 const delay : number = 20 
@@ -47,20 +47,20 @@ export const useDimension = () => {
 export const useStyle = (w : number, h : number, scale : number) => {
     const r1 : number = Math.min(w, h) / 4.9 
     const r2 : number = Math.min(w, h) / 15.9 
-    const position : string = 'absolute'
+    const position = 'absolute'
     const left : string = `${w / 2}px`
     const top : string = `${h / 2}px`
     const border : string = `3px solid black`
     const borderRadius : string = `50%`
     return {
-        parentStyle() {
+        parentStyle() : CSSProperties {
             return {
                 position, 
                 left, 
                 top 
             }
         },
-        circle1Style() {
+        circle1Style(): CSSProperties {
             const left : string = `${-r1}px`
             const top : string = `${-r1}px`
             const width : string = `${2 * r1}px`
@@ -76,7 +76,7 @@ export const useStyle = (w : number, h : number, scale : number) => {
                 
             }
         },
-        circle2Style() {
+        circle2Style() : CSSProperties {
             const x : number = r1 * Math.cos(2 * Math.PI * scale)
             const y : number = r1 * Math.sin(2 * Math.PI * scale)
             const left : string = `${x - r2}px`
