@@ -1,5 +1,6 @@
 import React from 'react'
 import {useStyle} from './hooks'
+import withContext from './withContext'
 
 interface ConcCircleProps {
     w : number, 
@@ -20,4 +21,4 @@ const ConcCircle : React.FC<ConcCircleProps> = (props : ConcCircleProps) => {
     )
 }
 
-export default ConcCircle 
+export default withContext(ConcCircle)
